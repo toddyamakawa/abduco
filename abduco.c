@@ -573,7 +573,7 @@ static int list_session(void) {
 		if (stat(namelist[n]->d_name, &sb) == 0 && S_ISSOCK(sb.st_mode)) {
 			pid_t pid = 0;
 			strftime(buf, sizeof(buf), "%a%t %F %T", localtime(&sb.st_mtime));
-			char status = ' ';
+			char status = '_';
 			char *local = strstr(namelist[n]->d_name, server.host);
 			if (local) {
 				*local = '\0'; /* truncate hostname if we are local */
